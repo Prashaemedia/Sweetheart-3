@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Booboo Shanaya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .dancing-font {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 90px;
+            margin: 0 auto;
+            animation: pulse 1.5s infinite;
+        }
+        
+        .heart:before, .heart:after {
+            position: absolute;
+            content: "";
+            left: 50px;
+            top: 0;
+            width: 50px;
+            height: 80px;
+            background: #ff6b81;
+            border-radius: 50px 50px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+        
+        .heart:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .love-letter {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: rotate(-2deg);
+            transition: all 0.3s ease;
+        }
+        
+        .love-letter:hover {
+            transform: rotate(0deg) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .game-container {
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .memory-card {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: all 0.5s;
+            perspective: 1000px;
+        }
+        
+        .memory-card.flipped {
+            transform: rotateY(180deg);
+        }
+        
+        .memory-card.matched {
+            background: #aff1af;
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            border-radius: 50%;
+            animation: confetti-fall 5s linear forwards;
+            z-index: 1000;
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #ff6b81;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #ff6b81; }
+        }
+        
+        .special-message {
+            white-space: pre-line;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center py-10 px-4">
+    <div class="w-full max-w-3xl">
+        <!-- Title Section -->
+        <div class="text-center mb-10 animate__animated animate__fadeIn">
+            <div class="heart mb-6"></div>
+            <h1 class="text-4xl md:text-5xl font-bold text-pink-600 dancing-font mb-2">
+                To My Booboo Shanaya
+            </h1>
+            <p class="text-lg text-gray-600">
+                A digital love letter that barely scratches the surface of how I feel...
+            </p>
+        </div>
+        
+        <!-- Love Letter Section -->
+        <div class="love-letter p-6 md:p-8 mb-10 animate__animated animate__fadeInUp">
+            <h2 class="text-2xl font-semibold text-pink-600 mb-4 dancing-font">My Dearest Booboo,</h2>
+            <p class="mb-3 text-gray-700">Every moment with you, my beautiful Shanaya, feels like magic. When I'm with you, time stands still, and the world fades away.</p>
+            <p class="mb-3 text-gray-700">Your smile brightens my darkest days, Booboo. Your voice soothes my anxious heart, and your love completes me in ways I never knew were possible.</p>
+            <p class="mb-3 text-gray-700">I want you to know that you're not just my girlfriend - you're my best friend, Shanaya, my partner in crime, my greatest supporter, and the love of my life.</p>
+            <div class="text-center mt-6">
+                <button id="playGameBtn" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full transition-all transform hover:scale-105 shadow-lg">
+                    Play Our Love Game
+                </button>
+            </div>
+        </div>
+        
+        <!-- Memory Game Section -->
+        <div id="gameSection" class="game-container p-6 mb-10 hidden animate__animated animate__fadeInUp">
+            <h2 class="text-2xl font-bold text-white text-center mb-6 dancing-font">Our Loving Memories</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="memory-game">
+                <!-- Cards will be generated by JavaScript -->
+            </div>
+            <p id="gameMessage" class="text-white text-center mt-4 italic"></p>
+        </div>
+        
+        <!-- Final Message - Hidden Initially -->
+        <div id="finalMessage" class="hidden">
+            <div class="love-letter p-6 md:p-8 mb-10 animate__animated animate__fadeInUp">
+                <h2 class="text-2xl font-semibold text-pink-600 mb-4 dancing-font">My Booboo Shanaya...</h2>
+                <p class="mb-3 special-message" id="specialMessageText"></p>
+            </div>
+            
+            <div class="flex justify-center mb-10 animate__animated animate__fadeIn delay-1s">
+                <div class="text-center">
+                    <div class="heart mb-6 animate__animated animate__heartBeat infinite"></div>
+                    <p class="text-xl text-pink-600 dancing-font">Forever Yours</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Game setup
+        const emojis = ['❤️', '🌸', '⭐', '💑', '💘', '💝', '✨', '🥂'];
+        const cards = [...emojis, ...emojis];
+        let hasFlippedCard = false;
+        let lockBoard = false;
+        let firstCard, secondCard;
+        let matchedPairs = 0;
+        
+        // Message content
+        const fullMessage = `My dearest Booboo Shanaya,
+
+Sometimes I wonder how I ever lived before you…
+because now, even the thought of a life without you breaks me. 
+
+Shanaya, I love you more than anyone — more than my own family. 
+You feel like home, like peace. 
+
+In the end, I don't need anything else…
+I just need you, my Booboo.
+
+And I'm always here for you and till my last breathe 
+I'm with you hoping same from you...`;
+
+        // Shuffle function
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        
+        // Initialize game
+        function initGame() {
+            const gameBoard = document.getElementById('memory-game');
+            gameBoard.innerHTML = '';
+            matchedPairs = 0;
+            
+            shuffle(cards).forEach((card, index) => {
+                const cardElement = document.createElement('div');
+                cardElement.classList.add('memory-card');
+                cardElement.dataset.emoji = card;
+                cardElement.dataset.index = index;
+                cardElement.textContent = '?';
+                cardElement.addEventListener('click', flipCard);
+                gameBoard.appendChild(cardElement);
+            });
+            
+            document.getElementById('gameMessage').textContent = 'Find all the matching pairs of love!';
+        }
+        
+        // Flip card function
+        function flipCard() {
+            if (lockBoard) return;
+            if (this === firstCard) return;
+            
+            this.textContent = this.dataset.emoji;
+            this.classList.add('flipped');
+            
+            if (!hasFlippedCard) {
+                hasFlippedCard = true;
+                firstCard = this;
+                return;
+            }
+            
+            secondCard = this;
+            checkForMatch();
+        }
+        
+        // Check for match
+        function checkForMatch() {
+            const isMatch = firstCard.dataset.emoji === secondCard.dataset.emoji;
+            
+            if (isMatch) {
+                disableCards();
+                matchedPairs++;
+                
+                if (matchedPairs === emojis.length) {
+                    setTimeout(() => {
+                        document.getElementById('gameMessage').textContent = 'You found all the love! Just like I found you my Booboo ❤️';
+                        setTimeout(showFinalMessage, 2000);
+                    }, 500);
+                }
+            } else {
+                unflipCards();
+            }
+        }
+        
+        // Disable matched cards
+        function disableCards() {
+            firstCard.classList.add('matched');
+            secondCard.classList.add('matched');
+            firstCard.removeEventListener('click', flipCard);
+            secondCard.removeEventListener('click', flipCard);
+            
+            resetBoard();
+        }
+        
+        // Unflip unmatched cards
+        function unflipCards() {
+            lockBoard = true;
+            
+            setTimeout(() => {
+                firstCard.textContent = '?';
+                secondCard.textContent = '?';
+                firstCard.classList.remove('flipped');
+                secondCard.classList.remove('flipped');
+                
+                resetBoard();
+            }, 1000);
+        }
+        
+        // Reset board
+        function resetBoard() {
+            [hasFlippedCard, lockBoard] = [false, false];
+            [firstCard, secondCard] = [null, null];
+        }
+        
+        // Show final message
+        function showFinalMessage() {
+            document.getElementById('gameSection').classList.add('hidden');
+            document.getElementById('specialMessageText').textContent = fullMessage;
+            document.getElementById('finalMessage').classList.remove('hidden');
+            createConfetti();
+        }
+        
+        // Create confetti
+        function createConfetti() {
+            const colors = ['#ff6b81', '#ff8e8e', '#f3a683', '#778beb', '#e77f67', '#cf6a87', '#f19066'];
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+        
+        // Event listeners
+        document.getElementById('playGameBtn').addEventListener('click', () => {
+            document.getElementById('playGameBtn').classList.add('hidden');
+            document.getElementById('gameSection').classList.remove('hidden');
+            initGame();
+        });
+        
+        // Initial animations
+        setTimeout(() => {
+            document.querySelector('.heart').classList.add('animate__heartBeat');
+        }, 1000);
+    </script>
+    </body><body>
+        </body>
+    </body>
